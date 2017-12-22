@@ -11,6 +11,7 @@ import com.demo.station.domain.Station;
 
 /**
  * StationTests contains tests for the Station class and its methods.
+ * 
  * @author Stew
  *
  */
@@ -19,13 +20,14 @@ import com.demo.station.domain.Station;
 public class StationTests {
 
 	/**
-	 * TestStation is a basic test for the Station class and Lombok generated functions.
+	 * TestStation is a basic test for the Station class and Lombok generated
+	 * functions.
 	 */
 	@Test
 	public void testStation() {
 		Station station = new Station("TestId", "testStation", true, "KTST");
 		Station station2 = new Station("TestId", "testStation", true, "KTSK");
-		assertEquals("ToString method is incorrect.", station.toString(), 
+		assertEquals("ToString method is incorrect.", station.toString(),
 				"Station(stationId=TestId, name=testStation, hdEnabled=true, callsign=KTST)");
 		assertTrue("Hashcode method is incorrect.", station.hashCode() == station.hashCode());
 		assertTrue("Equals method is incorrect.", station.equals(station));
@@ -45,7 +47,7 @@ public class StationTests {
 		station.setHdEnabled(false);
 		station.setName("testStation2");
 		station.setStationId("TestId2");
-		assertEquals("ToString method is incorrect.", station.toString(), 
+		assertEquals("ToString method is incorrect.", station.toString(),
 				"Station(stationId=TestId2, name=testStation2, hdEnabled=false, callsign=KTTK)");
 		assertTrue("Hashcode method is incorrect.", station.hashCode() == station.hashCode());
 		assertTrue("Equals method is incorrect.", station.equals(station));

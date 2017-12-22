@@ -20,6 +20,7 @@ import com.demo.station.domain.Station;
 import com.demo.station.domain.repositories.StationRepository;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * StationRestController class contains implementations of the Station API such as
@@ -28,7 +29,7 @@ import io.swagger.annotations.Api;
  *
  */
 @RestController
-@Api
+@Api(value = "Station API")
 @RequestMapping("/api")
 public class StationRestController {
 	
@@ -36,9 +37,9 @@ public class StationRestController {
 	
 	/**
 	 * Returns all the stations currently in the database.
-	 * @return
 	 */
 	@GetMapping("/stations")
+	@ApiOperation(value = "Returns all the stations currently in the database")
 	public Collection<Station> getStations() {
 		return this.stationRepository.findAll();
 	}
@@ -49,6 +50,7 @@ public class StationRestController {
 	 * @return Collection of stations matching criteria
 	 */
 	@GetMapping("/stations/{stationId}")
+	@ApiOperation(value = "Returns the stations that matches the stationId")
 	public Collection<Station> getStationByStationId(@PathVariable("stationId") String stationId) {
 		return this.stationRepository.findByStationId(stationId);
 	}
@@ -59,6 +61,7 @@ public class StationRestController {
 	 * @return Collection of stations matching criteria
 	 */
 	@GetMapping("/stations/names/{name}")
+	@ApiOperation(value = "Returns the stations that matches the name")
 	public Collection<Station> getStationByName(@PathVariable("name") String name) {
 		return this.stationRepository.findByName(name);
 	}
@@ -68,6 +71,7 @@ public class StationRestController {
 	 * @return Collection of stations matching criteria
 	 */
 	@GetMapping("/stations/hdEnabled")
+	@ApiOperation(value = "Returns all stations that are HD enabled")
 	public Collection<Station> getHdEnabledStations() {
 		return this.stationRepository.findByHdEnabled(true);
 	}
@@ -81,6 +85,7 @@ public class StationRestController {
 	 * @return the newly added station
 	 */
 	@PostMapping("/stations/add/{stationId}")
+	@ApiOperation(value = "Adds station to database")
 	public Station addStation(@Valid @PathVariable(value = "stationId") String stationId,
 			@Valid @RequestParam(required = false) String name, 
 			@Valid @RequestParam(required = false) boolean hdEnabled, 
@@ -105,6 +110,7 @@ public class StationRestController {
 	 * @return Response if successfully updated
 	 */
 	@PutMapping("/stations/update/{stationId}")
+	@ApiOperation(value = "Updates the station that matches the given stationId")
 	public ResponseEntity<Station> updateStation(@Valid @PathVariable(value = "stationId") String stationId,
 			@Valid @RequestParam(required = false) String newStationId,
 			@Valid @RequestParam(required = false) String name, 
@@ -133,6 +139,7 @@ public class StationRestController {
 	 * @return Response if successfully deleted.
 	 */
 	@DeleteMapping("/stations/delete/{stationId}")
+	@ApiOperation(value = "Deletes the station that matches the given stationId")
 	public ResponseEntity<Station> deleteStation(@PathVariable(value = "stationId") String stationId) {
 		List<Station> validStations = this.stationRepository.findByStationId(stationId);
 		if(validStations.isEmpty() || validStations.size() > 1) {

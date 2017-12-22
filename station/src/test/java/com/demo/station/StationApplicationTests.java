@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = StationApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(properties = {"management.port=0"})
+@TestPropertySource(properties = { "management.port=0" })
 public class StationApplicationTests {
 
 	@LocalServerPort

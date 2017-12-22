@@ -17,14 +17,15 @@ import lombok.ToString;
 
 /**
  * Station class that represents a radio station.
+ * 
  * @author Stew
  *
  */
 
 @Entity
 @Table(name = "STATION")
-@EqualsAndHashCode(exclude="id")
-@ToString(exclude="id")
+@EqualsAndHashCode(exclude = "id")
+@ToString(exclude = "id")
 @NoArgsConstructor
 @Setter
 @Getter
@@ -33,26 +34,26 @@ public class Station {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotBlank
-    @Size(max = 255)
+	@Size(max = 255)
 	private String stationId;
-	
+
 	@NotBlank
-    @Size(max = 255)
+	@Size(max = 255)
 	private String name;
-	
+
 	private boolean hdEnabled;
-	
+
 	@NotBlank
-    @Size(max = 4)
+	@Size(max = 4)
 	private String callsign;
-	
+
 	public Station(String stationId, String name, boolean hdEnabled, String callsign) {
 		this.stationId = stationId;
 		this.name = name;
 		this.hdEnabled = hdEnabled;
 		this.callsign = callsign;
 	}
-	
+
 }
