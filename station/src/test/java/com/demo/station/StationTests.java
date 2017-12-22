@@ -22,7 +22,7 @@ public class StationTests {
 	 * TestStation is a basic test for the Station class and Lombok generated functions.
 	 */
 	@Test
-	public void TestStation() {
+	public void testStation() {
 		Station station = new Station("TestId", "testStation", true, "KTST");
 		Station station2 = new Station("TestId", "testStation", true, "KTSK");
 		assertEquals("ToString method is incorrect.", station.toString(), 
@@ -38,7 +38,7 @@ public class StationTests {
 	 * TestStation is a basic test to cover Lombok generated setters.
 	 */
 	@Test
-	public void TestStationSetters() {
+	public void testStationSetters() {
 		Station station = new Station("TestId", "testStation", true, "KTST");
 		station.setCallsign("KTTK");
 		station.setId(1L);
