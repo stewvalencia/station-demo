@@ -1,6 +1,7 @@
 package com.demo.station;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +13,7 @@ public class StationApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		Assert.assertTrue(true);
+		assertTrue(true);
 	}
 
 }
