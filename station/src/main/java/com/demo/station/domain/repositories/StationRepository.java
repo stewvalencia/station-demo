@@ -14,4 +14,6 @@ import com.demo.station.domain.Station;
  */
 public interface StationRepository extends JpaRepository<Station, Long> {
 	List<Station> findByStationId(String stationId);
+	List<Station> findByName(String name);
+	List<Station> findByHdEnabled(boolean hdEnabled);
 }
